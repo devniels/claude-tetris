@@ -439,8 +439,8 @@ function showGameOverRecords() {
   let lastName = '';
   try { lastName = localStorage.getItem(NAME_KEY) || ''; } catch (e) { /* ignorar */ }
   nameInput.value = lastName.slice(0, 12);
-  nameInput.focus();
-  nameInput.select();
+  // retrasar el foco para que teclas mantenidas (Space/flechas) no escriban en el campo
+  setTimeout(() => { nameInput.focus(); nameInput.select(); }, 400);
 
   nameForm.onsubmit = ev => {
     ev.preventDefault();
