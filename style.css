@@ -234,3 +234,53 @@ kbd {
 #restart-btn:hover {
   background: #9bbdff;
 }
+
+/* ---- Skins ---- */
+.skin-picker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#skin-select {
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--toggle-border);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+body.skin-neon {
+  --canvas-bg: #000;
+  --grid-line: #12202a;
+}
+
+body.skin-pastel {
+  --canvas-bg: #f6f1fa;
+  --grid-line: #e6dcef;
+}
+
+body.skin-pastel #board,
+body.skin-pastel #next-canvas {
+  border-radius: 12px;
+}
+
+body.skin-pixel {
+  --canvas-bg: #14141c;
+  --grid-line: #262633;
+}
+
+body.skin-pixel #board,
+body.skin-pixel #next-canvas {
+  border-radius: 0;
+  image-rendering: pixelated;
+}
+
+body.light-mode.skin-pixel {
+  --canvas-bg: #dcdce8;
+  --grid-line: #c4c4d6;
+}
