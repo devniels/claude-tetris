@@ -32,6 +32,7 @@ Three files, no framework, no bundler:
 | Scoring | `LINE_SCORES = [0,100,300,500,800]` × `level`; hard drop +2/cell, soft drop +1/row |
 | Speed | `dropInterval = max(100, 1000 − (level−1) × 90)` ms; level = `floor(lines/10) + 1` |
 | Ghost piece | `ghostY()` — projects current piece down until collision; drawn at `globalAlpha = 0.2` |
+| Pause menu | `#pause-menu` overlay (P/Esc): `togglePause()`/`resumeGame()`; `startLevel` (select, localStorage `tetris-start-level`) applied in `init()`; `swallowHeld` ignores held keys after resume. `#overlay` is GAME OVER only |
 | State flags | `paused`, `gameOver`, `animId` (RAF handle) |
 
 ### Game flow
