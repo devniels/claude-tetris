@@ -34,6 +34,10 @@ Three files, no framework, no bundler:
 | Ghost piece | `ghostY()` — projects current piece down until collision; drawn at `globalAlpha = 0.2` |
 | State flags | `paused`, `gameOver`, `animId` (RAF handle) |
 
+### Records
+
+`localStorage['tetris-records']` = `{ top: [{name,score,lines,level,date}] (max 5), bestCombo, maxLines }`; last name in `tetris-last-name`. The game no longer auto-starts: `#start-screen` (top 5 + "Jugar") calls `init()`. `clearLines()` tracks `combo`/`maxCombo`; `endGame()` → `showGameOverRecords()` (name form only if the score qualifies). Tables are built with `textContent` only. The global keydown handler ignores events from `<input>`.
+
 ### Game flow
 
 `init()` → `spawn()` → `requestAnimationFrame(loop)`. Each frame: accumulate dt → auto-drop or `lockPiece()` → `draw()`. `lockPiece()` = `merge()` + `clearLines()` + `spawn()`. If `spawn()` immediately collides → `endGame()`.
