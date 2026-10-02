@@ -41,3 +41,7 @@ Three files, no framework, no bundler:
 ## Tunable constants (top of game.js)
 
 `COLS` (10), `ROWS` (20), `BLOCK` (30 px), `COLORS` (array indexed 1–7), `LINE_SCORES`. If you change `COLS`/`ROWS`/`BLOCK`, update the canvas `width`/`height` attributes in `index.html` to match (`COLS×BLOCK` and `ROWS×BLOCK`).
+
+## Skins
+
+`SKINS` in game.js (`retro`, `neon`, `pastel`, `pixel`) each hold `colors` (index 0 = null, 1–8 pieces) and `drawBlock(context,x,y,colorIndex,size,alpha)`. The global `drawBlock()` delegates to `SKINS[currentSkin]`; `applySkin(name)` sets body class `skin-<name>`, redraws, and the choice persists in localStorage `tetris-skin`. Adding a piece type also requires a color in every skin's `colors`.
